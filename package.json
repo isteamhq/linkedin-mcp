@@ -1,0 +1,52 @@
+{
+  "name": "@isteam/linkedin-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for LinkedIn — post, comment, react, and manage content via AI agents",
+  "type": "module",
+  "main": "./dist/index.js",
+  "bin": {
+    "linkedin-mcp": "./bin/linkedin-mcp.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "start": "node dist/index.js",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "mcp",
+    "linkedin",
+    "social-media",
+    "marketing",
+    "ai",
+    "llm",
+    "claude",
+    "model-context-protocol",
+    "professional-network"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/isteamhq/linkedin-mcp.git"
+  },
+  "homepage": "https://is.team",
+  "bugs": {
+    "url": "https://github.com/isteamhq/linkedin-mcp/issues"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.27.0",
+    "zod": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.7.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "files": [
+    "dist",
+    "bin",
+    "README.md"
+  ]
+}
