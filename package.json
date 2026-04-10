@@ -1,6 +1,6 @@
 {
   "name": "@isteam/linkedin-mcp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "MCP server for LinkedIn — post, comment, react, and manage content via AI agents",
   "type": "module",
   "main": "./dist/index.js",
