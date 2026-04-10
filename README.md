@@ -81,6 +81,22 @@ To post as a company page, set `LINKEDIN_MODE=organization` and provide `LINKEDI
 }
 ```
 
+## Rate Limits & Agent Safety
+
+LinkedIn API enforces per-endpoint rate limits:
+
+| Endpoint | Limit | Notes |
+|----------|-------|-------|
+| `POST /rest/posts` (create post) | 1 req/sec, ~100/day | Stricter daily cap on content creation |
+| `POST /rest/socialActions/.../comments` | 2 req/sec | |
+| `POST /rest/reactions` (like) | 1 req/sec | |
+| `GET` endpoints (posts, comments, stats) | ~100 req/hour | Per authenticated user |
+| General throttle | ~60 req/min | Varies by endpoint scope |
+
+**Idempotency note:** LinkedIn does not deduplicate identical posts. If your agent retries on timeout, it may create duplicate content. Use `get_own_posts` to verify before retrying a create operation.
+
+**Backoff:** When rate-limited, the API returns `429` with a `Retry-After` header (seconds). Wait the specified duration before retrying.
+
 ## Usage Examples
 
 **Share a thought leadership post:**
